@@ -75,9 +75,9 @@ img{
 }
 /* Header */
 header{
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: var(--outline);
+    outline: 1px;
+    outline-style: solid;
+    outline-color: var(--outline);
 }
 
 .container.nav{
@@ -115,11 +115,24 @@ header{
     display: block;
     padding-top: 32px;
     padding-bottom: 32px;
+
+    position: relative;
 }
 .site-nav .link:hover,
 .site-nav .link:focus,
 .site-nav .link.current {
     color: var(--accent-color);
+}
+.current::after{
+    content: "";
+    background-color: var(--accent-color);
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;;
+
+    position: absolute;
+    bottom: -1px;
+    left: 0;
 }
 
 .site-nav,
