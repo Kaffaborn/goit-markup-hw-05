@@ -14,6 +14,8 @@
     --features-bg:rgba(245, 244, 250, 1);
     --icon-main-color: #AFB1B8;
     --footer-links-bg:rgba(255, 255, 255, 0.1);
+    --what-we-do-overlay:rgba(47, 48, 58, 0.8);
+    --projects-overlay:rgba(33, 150, 243, 0.9);
 }
 
 h1,h2,h3,h4,p,ul{
@@ -180,13 +182,6 @@ header{
     fill:currentColor;
 }
 
-.contact .link:hover .envelope,
-.contact .link:focus .envelope,
-.contact .link:hover .smartphone,
-.contact .link:focus .smartphone{
-    fill: var(--accent-color);
-}
-
 /* Hero */
 .hero {
     background-color: var(--secondary-bg-color);
@@ -294,6 +289,34 @@ header{
 .what-we-do .item:not(:last-child){
     margin-right: 30px;
 }
+.what-we-do .item{
+    position: relative;
+}
+.what-we-do .item::before{
+    display: inline-block;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    background-color: var(--what-we-do-overlay);
+}
+
+.what-we-do-text{
+    position: absolute;
+    bottom:0;
+    left:0;
+    transform: translate(107px, -27px);   
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--primary-white-color);
+
+}
+
 /* Team */
 .team{
     background-color: var(--team-bg-color);
@@ -544,12 +567,46 @@ header{
 .project-link {
     display: block;
     text-decoration: none;
+
+    position: relative;
 }
 .project-link:hover,
 .project-link:focus{
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
         0px 4px 4px rgba(0, 0, 0, 0.06),
         1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.project-link:hover::before,
+.project-link:hover .project-overlay-text{
+    opacity: 1;
+}
+
+.project-link::before{
+    display: inline-block;
+    content: "";
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height:294px;
+    
+    background-color: var(--projects-overlay);
+
+    opacity: 0;
+}
+.project-overlay-text{
+    position: absolute;
+    top: 63px;
+    left: 24px;
+    width: 322px;
+    height: 168px;
+    
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--primary-white-color);
+
+    opacity: 0;
 }
 
 .project-bottom{
